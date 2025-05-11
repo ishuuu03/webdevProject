@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul class="nav-list">
+            <!-- Logo -->
+            <div class="logo-img">
+                <img src="lalLogo.png" alt="centerPic" width="120" height="100">
+            </div>
+
+            <li><a href="home.html">About us</a></li>
+            <li><a href="mission.html">Our Mission</a></li>
+            <li><a href="team.html">Our Team</a></li>
+            <li><a href="apps.html">Appointments</a></li>
+            <li><a href="healthCheck.html">Health Check</a></li>
+            <li><a href="donate.html">Donate</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-info">
+            <!-- Slideshow Section -->
+            <div class="slideshow-container">
+                <img src="teamAU.png" class="slideshow-image active" alt="Team AU">
+                <img src="drAU.png" class="slideshow-image" alt="Dr AU">
+                <img src="paAU.png" class="slideshow-image" alt="PA AU">
+            </div>
+
+            <!-- Slideshow Script -->
+            <script>
+                const images = document.querySelectorAll('.slideshow-image');
+                let current = 0;
+
+                function showNextImage() {
+                    images[current].classList.remove('active');
+                    current = (current + 1) % images.length;
+                    images[current].classList.add('active');
+                }
+
+                setInterval(showNextImage, 8000);
+            </script>
+        </div>
+    </section>
+</body>
+
+</html>
