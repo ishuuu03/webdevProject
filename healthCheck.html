@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang= "en">
+<head>
+    <meta charset= "UTF-8">
+    <meta name= "viewport"
+    content="width=device-width, initial-scale=1.0"> 
+    <title>Navigation Bar</title> 
+    <link rel = "stylesheet" href= "style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-list">    
+            <div class="logo-img">
+                <img src=
+"lalLogo.png" alt="centerPic" width="120" height="100">
+            </div>     
+            <li><a href="home.html"">About us</a></li>
+            <li><a href="mission.html">Our Mission</a></li>
+            <li><a href="team.html">Our Team</a></li>
+            <li><a href="apps.html">Appointments</a></li>
+            <li><a href="healthCheck.html">Health Check</a></li>
+            <li><a href="donate.html">Donate</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+
+</ul>
+
+    </nav>
+
+     <div class="survey-container">
+        <p> 🚨NOTE: This test is not intended to serve as a diagnosis but rather as a tool to assess the severity of the patient's symptoms and help determine whether further medical observation is necessary.🚨</p>
+        </div>
+
+ 
+    <div class="survey-container">
+        
+        <div id="question-container">
+          <div id="question" class="question"></div>
+          <button class="btn btn-yes" onclick="recordAnswer(true)">Yes</button>
+          <button class="btn btn-no" onclick="recordAnswer(false)">No</button>
+        </div>
+      
+        <div id="result"></div>
+      </div>
+      
+      <script>
+        const questions = [
+          { text: "Do you have difficulty breathing?", symptom: "breathing" },
+          { text: "Do you experience numbness on one side of your body?", symptom: "numbness" },
+          { text: "Are you feeling confused or disoriented?", symptom: "confusion" },
+          { text: "Are you having trouble speaking or understanding speech?", symptom: "speech" },
+          { text: "Do you have a severe headache?", symptom: "headache" },
+          { text: "Are you feeling dizziness or lightheaded?", symptom: "dizziness" }
+        ];
+      
+        let currentQuestion = 0;
+        const selectedSymptoms = [];
+      
+        const questionEl = document.getElementById("question");
+        const diagnResult = document.getElementById("result");
+      
+        function showQuestion() {
+          if (currentQuestion < questions.length) {
+            questionEl.textContent = questions[currentQuestion].text;
+          } else {
+            evaluateResults();
+          }
+        }
+      
+        function recordAnswer(answer) {
+          if (answer) {
+            selectedSymptoms.push(questions[currentQuestion].symptom);
+          }
+          currentQuestion++;
+          showQuestion();
+        }
+      
+        function evaluateResults() {
+          document.getElementById("question-container").style.display = "none";
+      
+          const hasBreathing = selectedSymptoms.includes("breathing");
+          const hasNumbness = selectedSymptoms.includes("numbness");
+          const hasConfusion = selectedSymptoms.includes("confusion");
+          const hasSpeech = selectedSymptoms.includes("speech");
+          const hasHeadache = selectedSymptoms.includes("headache");
+          const hasDizziness = selectedSymptoms.includes("dizziness");
+      
+          if (hasBreathing && hasNumbness && hasConfusion && hasSpeech) {
+            diagnResult.textContent = "⚠️ You may be experiencing a medical emergency (possible heart attack or stroke). Call 911 immediately.";
+            diagnResult.className = "urgent";
+          } else if (hasBreathing || hasNumbness || hasConfusion || hasSpeech) {
+            diagnResult.textContent = " These symptoms may be concerning. Please see a doctor as soon as possible.";
+            diagnResult.className = "warning";
+          } else if (hasHeadache || hasDizziness) {
+            diagnResult.textContent = " You may just be experiencing mild symptoms. Drink water, rest, and take over the counter medicine to alleviate symptoms.";
+            diagnResult.className = "ok";
+          } else {
+            diagnResult.textContent = "No further need for an appointment. Stay healthy and monitor your health.";
+            diagnResult.className = "ok";
+          }
+        }
+      
+        showQuestion();
+      </script>
+</body> </html>
