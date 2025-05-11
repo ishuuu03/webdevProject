@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Navigation Bar</title> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="testRun.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul class="nav-list">      
+            <div class="logo-img">
+                <img src="lalLogo.png" alt="centerPic" width="120" height="100">
+            </div>   
+            <li><a href="home.html">About Us</a></li>
+            <li><a href="mission.html">Our Mission</a></li>
+            <li><a href="team.html">Our Team</a></li>
+            <li><a href="apps.html">Appointments</a></li>
+            <li><a href="healthCheck.html">Health Check</a></li>
+            <li><a href="donate.html">Donate</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- This is the feedback/Contact us form where users can reach out to us-->
+    <div class="formContainer">
+        <form method="POST" action="">
+            <div class="formRow">
+                <h4>User Information</h4>
+
+                <div class="input-group input-group-icon">
+                    <input type="text" placeholder="First Name" required />
+                    <div class="input-icon">
+                        <i class="fa fa-user"></i>
+                    </div>
+                </div>
+
+                <div class="input-group input-group-icon">
+                    <input type="text" placeholder="Last Name" required />
+                    <div class="input-icon">
+                        <i class="fa fa-user"></i>
+                    </div>
+                </div>
+
+                <div class="input-group input-group-icon">
+                    <input type="text" placeholder="Phone Number" required />
+                    <div class="input-icon">
+                        <i class="fa fa-user"></i>
+                    </div>
+                </div>
+
+                <div class="input-group input-group-icon">
+                    <input type="email" placeholder="Email" required />
+                    <div class="input-icon">
+                        <i class="fa fa-envelope"></i>
+                    </div>
+                </div>
+            </div>
+          <div class="input-group input-group-icon">
+                <h4>Any Questions, Comments, Concerns, or Feedback?</h4>
+                <input type="text" placeholder="Feedback" required />
+            </div>
+
+            <div class="col-half">
+                <div class="input-group">
+                    <h4>Website Accessibility</h4>
+                    <select name="WA" id="wa" required>
+                        <option value="" disabled selected>Select</option>
+                            <option value="10">It's excellent</option>
+                            <option value="7">Good but can be improved</option>
+                            <option value="5">Neutral</option>
+                            <option value="1">It's terrible</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-half">
+                <div class="input-group">
+                    <h4>Service Satisfaction</h4>
+                    <select name="serviceSatisfaction" id="serviceSatisfaction" required>
+                        <option value="" disabled selected>Select</option>
+                            <option value="5">Excellent</option>
+                            <option value="4">Good</option>
+                            <option value="3">Fair</option>
+                            <option value="1">Poor</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-half">
+                <div class="input-group">
+                    <h4>Front Desk Staff</h4>
+                    <select name="frontDeskStaff" id="frontDeskStaff" required>
+                        <option value="" disabled selected>Select</option>
+                            <option value="5">Excellent</option>
+                            <option value="4">Good</option>
+                            <option value="3">Fair</option>
+                            <option value="1">Poor</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-half">
+                <div class="input-group">
+                    <h4>Medical Professionals</h4>
+                    <select name="medicalProfessionals" id="medicalProfessionals" required>
+                        <option value="" disabled selected>Select</option>
+                            <option value="5">Excellent</option>
+                            <option value="4">Good</option>
+                            <option value="3">Fair</option>
+                            <option value="1">Poor</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+
+            <input type="submit" value="Submit" class="btn">
+        </form>
+    </div>
+    <script>
+        document.querySelector("form").addEventListener("submit", function(e) {
+          e.preventDefault(); // Prevent actual form submission
+          alert("Your response was submitted successfully!");
+          this.reset();
+        });
+      </script>
+</body>
+</html>
